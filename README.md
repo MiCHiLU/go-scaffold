@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/MiCHiLU/go-scaffold.svg?branch=master)](https://travis-ci.org/MiCHiLU/go-scaffold)
+
 features
 --------
 
@@ -6,6 +8,10 @@ features
 initial setup
 -------------
 
+    $ goenv go-scaffold
+    Directory './go-scaffold' exist.
+    Do you want overwrite it? [y/N]: y
+    Environment ./go-scaffold created!
     $ mkvirtualenv go-scaffold
     (go-scaffold)$ goof workon go-scaffold
     (go:go-scaffold) (go-scaffold)$ make setup
@@ -16,12 +22,6 @@ workon
     $ workon go-scaffold
     (go-scaffold)$ goof workon go-scaffold
     (go:go-scaffold) (go-scaffold)$
-
-get go libraries
-----------------
-
-    $ go get github.com/samuel/go-gettext
-    $ go get github.com/jteeuwen/go-bindata/...
 
 build and run
 -------------

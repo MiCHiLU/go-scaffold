@@ -81,8 +81,13 @@ all: $(GO) $(LOCALE) test
 clean:
 	rm -f $(POT) $(MO) $(LOCALE) ./bin/$(PROJECT)* ./bin/*/$(PROJECT)* ./bin/*.zip
 
-setup:
+get-deps:
 	pip install --use-mirrors -r packages.txt
+	go get github.com/samuel/go-gettext
+	go get github.com/jteeuwen/go-bindata/...
+
+setup:
+	make get-deps
 	cd $(go env GOROOT)/src &&\
 	for platform in $(PLATFORMS); do\
 	  GOOS=$${platform%/*} GOARCH=$${platform#*/} ./make.bash ;\
