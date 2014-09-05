@@ -82,7 +82,7 @@ clean:
 	rm -f $(POT) $(MO) $(LOCALE) ./bin/$(PROJECT)* ./bin/*/$(PROJECT)* ./bin/*.zip
 
 get-deps:
-	pip install --use-mirrors -r packages.txt
+	pip install -t python --use-mirrors -r packages.txt
 	go get github.com/samuel/go-gettext
 	go get github.com/jteeuwen/go-bindata/...
 
