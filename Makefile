@@ -85,7 +85,7 @@ clean:
 
 setup:
 	pip install --use-mirrors -r packages.txt
-	cd $(go env GOROOT)/src &&\
+	cd $(shell go env GOROOT)/src &&\
 	for platform in $(PLATFORMS); do\
 	  GOOS=$${platform%/*} GOARCH=$${platform#*/} ./make.bash ;\
 	done;\
