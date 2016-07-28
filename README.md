@@ -7,7 +7,7 @@ initial setup
 -------------
 
     $ mkvirtualenv go-scaffold
-    (go-scaffold)$ goof workon go-scaffold
+    (go-scaffold)$ goof make go-scaffold
     (go:go-scaffold) (go-scaffold)$ make setup
 
 workon
