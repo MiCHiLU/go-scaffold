@@ -52,7 +52,7 @@ $(LOCALE): $(MO)
 
 bin/$(PROJECT): $(GO) $(LOCALE)
 	go fmt $(PROJECT)
-	go install -tags version_embedded -ldflags "-X main.name $(PROJECT) -X main.minorVersion $(AUTO_COUNT_SINCE).$(AUTO_COUNT_LOG) -X main.version $$(git describe --always --dirty=+) -X main.buildAt '$$(LANG=en date -u +'%b %d %T %Y')'" $(PROJECT)
+	go install -tags version_embedded -ldflags "-X main.name=$(PROJECT) -X main.minorVersion=$(AUTO_COUNT_SINCE).$(AUTO_COUNT_LOG) -X main.version=$$(git describe --always --dirty=+) -X \"main.buildAt='$$(LANG=en date -u +'%b %d %T %Y')'\"" $(PROJECT)
 	go test -test.short $(PROJECT)
 
 test:
@@ -66,7 +66,7 @@ all: $(GO) $(LOCALE) test
 	@failures="";\
 	for platform in $(PLATFORMS); do\
 	  echo building for $$platform;\
-	  GOOS=$${platform%/*} GOARCH=$${platform#*/} go install -tags version_embedded -ldflags "-X main.name $(PROJECT) -X main.minorVersion $(AUTO_COUNT_SINCE).$(AUTO_COUNT_LOG) -X main.version $$(git describe --always --dirty=+) -X main.buildAt '$$(LANG=en date -u +'%b %d %T %Y')'" $(PROJECT) || failures="$$failures $$platform";\
+	  GOOS=$${platform%/*} GOARCH=$${platform#*/} go install -tags version_embedded -ldflags "-X main.name=$(PROJECT) -X main.minorVersion=$(AUTO_COUNT_SINCE).$(AUTO_COUNT_LOG) -X main.version=$$(git describe --always --dirty=+) -X \"main.buildAt='$$(LANG=en date -u +'%b %d %T %Y')'\"" $(PROJECT) || failures="$$failures $$platform";\
 	done;\
 	if [ "$$failures" != "" ]; then\
 	  echo "*** FAILED on $$failures ***";\
