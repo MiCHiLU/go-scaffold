@@ -84,7 +84,7 @@ clean:
 	rm -f $(POT) $(MO) $(LOCALE) ./bin/$(PROJECT)* ./bin/*/$(PROJECT)* ./bin/*.zip
 
 setup:
-	pip install --use-mirrors -r packages.txt
+	pip install -r packages.txt
 	cd $(shell go env GOROOT)/src &&\
 	for platform in $(PLATFORMS); do\
 	  GOOS=$${platform%/*} GOARCH=$${platform#*/} ./make.bash ;\
