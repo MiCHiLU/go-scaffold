@@ -6,9 +6,24 @@ features
 initial setup
 -------------
 
+First, setup [goenv](https://bitbucket.org/ymotongpoo/goenv). Then:
+
+    $ git clone --branch master --depth 1 https://github.com/MiCHiLU/go-scaffold.git
     $ mkvirtualenv go-scaffold
     (go-scaffold)$ goof make go-scaffold
+    (go:go-scaffold) (go-scaffold)$ echo 'goof go go1.6.3\nexport PATH="$GOBIN":"$GOROOT/bin":$PATH' >> activate
+    (go:go-scaffold) (go-scaffold)$ deactivate && goof workon go-scaffold
     (go:go-scaffold) (go-scaffold)$ make setup
+
+## Set up submodules
+
+    $ git submodule init
+    $ git submodule update
+
+## Get go libraries
+
+    $ go get github.com/jteeuwen/go-bindata/...
+    $ go get github.com/samuel/go-gettext
 
 workon
 ------
@@ -16,12 +31,6 @@ workon
     $ workon go-scaffold
     (go-scaffold)$ goof workon go-scaffold
     (go:go-scaffold) (go-scaffold)$
-
-get go libraries
-----------------
-
-    $ go get github.com/samuel/go-gettext
-    $ go get github.com/jteeuwen/go-bindata/...
 
 build and run
 -------------
